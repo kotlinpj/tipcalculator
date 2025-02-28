@@ -50,28 +50,84 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_total">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Digite o total de pessoas"
+            android:hint="Digite o total de pessoas na mesa"
             android:inputType="number"
             android:maxLength="3" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+
+    <RadioGroup
+        android:id="@+id/rg_porcentagem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/til_pessoas"
+        app:layout_constraintStart_toStartOf="@+id/til_pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/til_pessoas">
+
+        <RadioButton
+            android:id="@+id/rb_dez_porcento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10%">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/rb_quinze_porcento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15%">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/rb_vinte_porcento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20%">
+        </RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_limpar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         android:text="Limpar"
         android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_pessoas" />
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintStart_toStartOf="@+id/til_pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/rg_porcentagem" />
+
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:text="Calcular"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintEnd_toEndOf="@+id/til_pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/rg_porcentagem"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
