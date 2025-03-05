@@ -26,10 +26,9 @@ class MainActivity : AppCompatActivity() {
             Total_Conta.text?.clear() // limpa o campo total conta ao clicar no botao limpar
         }
         btn_Calcular.setOnClickListener{
-            val valor_Conta: String = Total_Conta.text.toString()  // como temos campos que sao numericos é preciso fazer a conversao dos valores
-            val valor_Pessoas: String = Total_Pessoas.text.toString() //como temos campos que sao numericos é preciso fazer a conversao dos valores
 
-            if(valor_Conta == "" || valor_Pessoas == ""){
+            //if validando se os campos estao vazios
+            if(Total_Conta.text.isNullOrEmpty() || Total_Pessoas.text.isNullOrEmpty()){
                 Snackbar.make(
                     Total_Pessoas,
                     "Preencha os campos",
