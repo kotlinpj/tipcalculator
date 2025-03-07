@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
+const val KEY_MAIN_ACTIVITY = "Key_main_activity_inicial"
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +23,14 @@ class MainActivity : AppCompatActivity() {
         val btn_Limpar: Button = findViewById(R.id.btn_limpar)
         val btn_Calcular: Button = findViewById(R.id.btn_calcular)
 
-        btn_Limpar.setOnClickListener{
+        btn_Limpar.setOnClickListener {
             Total_Pessoas.text?.clear() // limpa o campo total pessoas ao clicar no botao limpar
             Total_Conta.text?.clear() // limpa o campo total conta ao clicar no botao limpar
         }
-        btn_Calcular.setOnClickListener{
+        btn_Calcular.setOnClickListener {
 
             //if validando se os campos estao vazios
-            if(Total_Conta.text.isNullOrEmpty() || Total_Pessoas.text.isNullOrEmpty()){
+            if (Total_Conta.text.isNullOrEmpty() || Total_Pessoas.text.isNullOrEmpty()) {
                 Snackbar.make(
                     Total_Pessoas,
                     "Preencha os campos",
