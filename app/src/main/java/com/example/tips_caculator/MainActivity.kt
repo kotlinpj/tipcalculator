@@ -1,5 +1,6 @@
 package com.example.tips_caculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
@@ -56,13 +57,6 @@ class MainActivity : AppCompatActivity() {
 
         btn_Calcular.setOnClickListener {
 
-            val conta: Int = Total_Conta.text.toString().toInt()
-            val pessoas: Int = Total_Pessoas.text.toString().toInt()
-            val total = conta / pessoas
-            val totalContaPessoa = total * percentagem
-
-            println("Valor a pagar por pessoa: " + totalContaPessoa)
-
             //if validando se os campos estao vazios
             if (Total_Conta.text.isNullOrEmpty() || Total_Pessoas.text.isNullOrEmpty()) {
                 Snackbar.make(
@@ -70,9 +64,20 @@ class MainActivity : AppCompatActivity() {
                     "Preencha os campos",
                     Snackbar.LENGTH_SHORT
                 ).show()
+            }else {
+
+                val conta: Float = Total_Conta.text.toString().toFloat()
+                val pessoas: Int = Total_Pessoas.text.toString().toInt()
+
+                val gorjeta = conta * percentagem / 100
+                val totalComGorjeta = conta + gorjeta
+                val valorPorPessoa = totalComGorjeta / pessoas
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_GORJETA, valorPorPessoa)
+                startActivity(intent)
+
             }
-
-
         }
 
     }
