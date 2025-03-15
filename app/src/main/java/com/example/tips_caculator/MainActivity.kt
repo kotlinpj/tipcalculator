@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                 val gorjeta = conta * percentagem / 100
                 val totalComGorjeta = conta + gorjeta
                 val valorPorPessoa = totalComGorjeta / pessoas
+                valorPorPessoa.toString().take(6)
 
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra(KEY_RESULT_GORJETA, valorPorPessoa)
